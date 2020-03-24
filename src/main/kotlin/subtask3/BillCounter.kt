@@ -1,10 +1,13 @@
 package subtask3
 
+private const val BON_APPETIT = "Bon Appetit"
+
 class BillCounter {
 
-    // TODO: Complete the following function
-    // The output could be "Bon Appetit" or the string with number(e.g "10")
     fun calculateFairlySplit(bill: IntArray, k: Int, b: Int): String {
-        throw NotImplementedError("Not implemented")
+        val expectedPaid = bill.filterIndexed { index, _ -> index != k }.sum() / 2
+        val diff = b - expectedPaid
+
+        return if (diff > 0) "$diff" else BON_APPETIT
     }
 }
